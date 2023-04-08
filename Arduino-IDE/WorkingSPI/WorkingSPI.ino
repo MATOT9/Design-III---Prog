@@ -1,21 +1,7 @@
 #include <SPI.h>      // Header file for SPI devices communication functions
 #include <stdio.h>    // Header file for standard I/O operations
-#include <Vbias.h>    // Header file for voltage bias thermistor temperature functions
-#include <Arduino.h>  // Header file for Arduino functions
 
 SPISettings MCP3002(3E6, MSBFIRST, SPI_MODE0);
-
-void setup(){
-  pinMode(SS, OUTPUT);
-  pinMode(SCK, OUTPUT);
-  pinMode(MISO, INPUT);
-
-  digitalWrite(SS, LOW);
-  digitalWrite(SS, HIGH);
-
-  SPI.begin();
-  Serial.begin(115200);
-}
 
 unsigned short int readADC(byte address){
   byte MSB = 0;
@@ -29,6 +15,18 @@ unsigned short int readADC(byte address){
   digitalWrite(SS, HIGH);
   SPI.endTransaction();
   return MSB << 8 | LSB;
+}
+
+void setup(){
+  pinMode(SS, OUTPUT);
+  pinMode(SCK, OUTPUT);
+  pinMode(MISO, INPUT);
+
+  digitalWrite(SS, LOW);
+  digitalWrite(SS, HIGH);
+
+  SPI.begin();
+  Serial.begin(115200);
 }
 
 void loop(){
