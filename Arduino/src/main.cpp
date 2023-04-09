@@ -2,11 +2,35 @@
 #include <stdio.h>    // Header file for standard I/O operations
 #include <Vbias.h>    // Header file for voltage bias thermistor temperature functions
 #include <Arduino.h>  // Header file for Arduino functions
+#include <list.h>
 
+const unsigned short int CS1 = 1;
+const unsigned short int CS2 = 2;
+const unsigned short int CS3 = 3;
+const unsigned short int CS4 = 4;
+const unsigned short int CS5 = 5;
+const unsigned short int CS6 = 6;
+const unsigned short int CS7 = 7;
+const unsigned short int CS8 = 8;
+const unsigned short int S0 = 11;
+const unsigned short int S1 = 12;
+const unsigned short int S2 = 13;
 SPISettings MCP3002(3E6, MSBFIRST, SPI_MODE0);
 
 void setup(){
-  pinMode(SS, OUTPUT);
+  pinMode(CS1, OUTPUT);
+  pinMode(CS2, OUTPUT);
+  pinMode(CS3, OUTPUT);
+  pinMode(CS4, OUTPUT);
+  pinMode(CS5, OUTPUT);
+  pinMode(CS6, OUTPUT);
+  pinMode(CS7, OUTPUT);
+  pinMode(CS8, OUTPUT);
+
+  pinMode(S0, OUTPUT);
+  pinMode(S1, OUTPUT);
+  pinMode(S2, OUTPUT);
+
   pinMode(SCK, OUTPUT);
   pinMode(MISO, INPUT);
 
