@@ -2,7 +2,7 @@
 #include <SPI.h>
 // Header file for voltage bias thermistor temperature functions
 // Replace path with your own
-#include <C:/Users/Maxime/Desktop/Vbias.h>
+#include </Users/justinemajor/Documents/git/Design-III-Prog/Arduino-IDE/Vbias.h>
 
 double Vo = 0;
 double V1 = 0;
