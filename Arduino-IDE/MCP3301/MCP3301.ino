@@ -2,12 +2,12 @@
 
 SPISettings MCP3002(3000000, MSBFIRST, SPI_MODE0);
 
-unsigned short int readADC(byte address){
+unsigned short int readADC(){
   byte MSB = 0;
   byte LSB = 0;
   byte JUNK = 0;
 
-  SPI.beginTransaction();
+  SPI.beginTransaction(MCP3002);
   digitalWrite(SS, LOW);
   MSB = SPI.transfer(JUNK) & 0x0F;  // Send readAddress and receive MSB data, masked to 4 bits
   LSB = SPI.transfer(JUNK);         // Push junk data and get LSB byte return
